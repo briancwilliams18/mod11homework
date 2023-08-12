@@ -15,13 +15,13 @@ Your challenge is to create an application called Note Taker that can be used to
 npm intall express uuid
 
 ## Usage
-create notes and save them
+create notes and save them.
 
 ## Contributing
 starter code is found here https://github.com/coding-boot-camp/miniature-eureka. if you would like to add suggestions create a github issue request!
 
 ## Tests
-node server.js should start the application. then go to http://localhost:3000 in your browser. Site is live via heroku at 
+node server.js should start the application. then go to http://localhost:3000 in your browser. Site is live via heroku at  https://mod11homework-baba3fff8216.herokuapp.com/. 
 
 ## License
 This project is licensed under the MIT license.
