@@ -6,10 +6,9 @@ const { v4: uuidv4 } = require('uuid');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static('public')); // This serves static files from the 'public' directory
+app.use(express.static(path.join(__dirname, 'develop', 'public')));
 
 // Route for serving index.html
 app.get('/', (req, res) => {
