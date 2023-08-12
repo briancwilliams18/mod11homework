@@ -6,6 +6,7 @@ const { v4: uuidv4 } = require('uuid');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'develop', 'public')));
@@ -22,7 +23,7 @@ app.get('/notes', (req, res) => {
 
 // Route for getting all notes
 app.get('/api/notes', (req, res) => {
-  const notes = JSON.parse(fs.readFileSync('./develop/db/db.json', 'utf8'));
+  const notes = JSON.parse(fs.readFileSync(path.join(__dirname, 'develop', 'db', 'db.json'), 'utf8'));
   res.json(notes);
 });
 
@@ -30,18 +31,18 @@ app.get('/api/notes', (req, res) => {
 app.post('/api/notes', (req, res) => {
   const newNote = req.body;
   newNote.id = uuidv4();
-  const notes = JSON.parse(fs.readFileSync('./develop/db/db.json', 'utf8'));
+  const notes = JSON.parse(fs.readFileSync(path.join(__dirname, 'develop', 'db', 'db.json'), 'utf8'));
   notes.push(newNote);
-  fs.writeFileSync('./develop/db/db.json', JSON.stringify(notes));
+  fs.writeFileSync(path.join(__dirname, 'develop', 'db', 'db.json'), JSON.stringify(notes));
   res.json(newNote);
 });
 
 // Route for deleting a note by ID
 app.delete('/api/notes/:id', (req, res) => {
   const noteId = req.params.id;
-  const notes = JSON.parse(fs.readFileSync('./develop/db/db.json', 'utf8'));
+  const notes = JSON.parse(fs.readFileSync(path.join(__dirname, 'develop', 'db', 'db.json'), 'utf8'));
   const updatedNotes = notes.filter(note => note.id !== noteId);
-  fs.writeFileSync('./develop/db/db.json', JSON.stringify(updatedNotes));
+  fs.writeFileSync(path.join(__dirname, 'develop', 'db', 'db.json'), JSON.stringify(updatedNotes));
   res.json({ message: 'Note deleted successfully' });
 });
 
