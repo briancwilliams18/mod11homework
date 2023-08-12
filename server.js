@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3000;
 // Middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static('develop/public'));
+app.use(express.static('public')); // This serves static files from the 'public' directory
 
 // Route for serving index.html
 app.get('/', (req, res) => {
