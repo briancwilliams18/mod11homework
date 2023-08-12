@@ -21,7 +21,7 @@ create notes and save them
 starter code is found here https://github.com/coding-boot-camp/miniature-eureka. if you would like to add suggestions create a github issue request!
 
 ## Tests
-node server.js should start the application. then go to http://localhost:3000 in your browser.
+node server.js should start the application. then go to http://localhost:3000 in your browser. Page is live at 
 
 ## License
 This project is licensed under the MIT license.
